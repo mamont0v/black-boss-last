@@ -1,0 +1,91 @@
+/*===== COLORS =====*/
+:root {
+  --white-color: #fafafa;
+  --dark-color: #101010;
+  --dark-color-light: #606060;
+  --grey-color-light: #e5e5e5;
+}
+
+/*===== z index =====*/
+:root {
+  --z-fixed: 100;
+  --z-tooltip: 10;
+}
+
+/*===== TIPOGRAFIA =====*/
+:root {
+  --body-font: system, -apple-system, BlinkMacSystemFont, "Segoe UI", "Segoe WP", Roboto, Ubuntu, Oxygen, Cantarell,
+    "Fira Sans", "Helvetica Neue", Helvetica, "Lucida Grande", "Droid Sans", Tahoma, "Microsoft Sans Serif", sans-serif;
+  --big-font-size: 3rem;
+  --h1-font-site: 1.5rem;
+  --h2-font-site: 1.25rem;
+  --normal-font-site: 0.938rem;
+  --small-font-site: 0.75rem;
+}
+
+@media screen and (min-width: 768px) {
+  :root {
+    --body-font: "Open Sans", sans-serif;
+    --big-font-size: 6rem;
+    --h1-font-size: 2.25rem;
+    --h2-font-size: 1.5rem;
+    --normal-font-size: 1rem;
+    --small-font-size: 0.813rem;
+  }
+}
+
+*,
+::before,
+::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+  --moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  color: var(--dark-color);
+  line-height: 1.6;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: var(--dark-color);
+}
+
+img {
+  max-width: 100%;
+}
+
+.logo {
+  width: 10%;
+  cursor: pointer;
+  border: 1px solid red;
+}

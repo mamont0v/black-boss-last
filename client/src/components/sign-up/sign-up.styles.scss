@@ -1,0 +1,16 @@
+.sign-up {
+    display: flex;
+
+    .sign-up-form {
+        input {
+            margin: 5px;
+            width: 250px;
+            height: 40px;
+
+        }
+
+        input[name=displayName] {
+            
+        }
+    }
+}
