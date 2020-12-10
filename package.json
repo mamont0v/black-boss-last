@@ -4,7 +4,10 @@
   "description": "shop clother",
   "main": "server.js",
   "type": "module",
-  
+  "engines": {
+    "node": "15.x",
+    "npm": "7.x"
+  },
   "scripts": {
     "start": "node backend/server",
     "server": "nodemon backend/server",
@@ -32,6 +35,8 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.10.14",
     "nodemon": "^2.0.6",
+    "sass": "^1.30.0",
+    "sass-loader": "^10.1.0",
     "stripe": "^8.121.0"
   },
   "devDependencies": {
