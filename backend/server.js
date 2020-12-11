@@ -9,7 +9,7 @@ import express from 'express'; //web application framework for Node
 import cors from 'cors'; //Cross-Origin Resource Sharing middleware
 // const bodyParser = require('body-parser'); //body parsing middleware
 import path from 'path';
-import mongoose from 'mongoose';
+// import mongoose from 'mongoose';
 //const helmet = require('helmet');
 //const products = require('./data/data.js');
 //const router = express.Router({ mergeParams: true });
@@ -23,6 +23,7 @@ import connectionDB from './configdb/db.js';
 import colors from 'colors';
 import productRoutes from './routers/Product.routes.js';
 import { notFound, errorHandler } from './middlewares/errorHandling.js';
+import morgan from 'morgan';
 
 dotenv.config();
 
@@ -35,12 +36,8 @@ connectionDB();
 // });
 
 
-const PORT = process.env.PORT || 5000
-
 const app = express();
-
-// const port = process.env.PORT || 5000;
-
+const PORT = process.env.PORT || 5000
 // app.use(helmet());
 
 
@@ -49,11 +46,17 @@ const app = express();
 //corsOptions = {
 //   origin: "http://localhost:8081"
 // };
+
+
 app.use(cors()); //corsOptions
 
+
+//Data parsing
 app.use(express.json())
+app.use(express.urlencoded({extended:false}))
 
 //Routes
+app.use(morgan('tiny'))
 app.use('/api/products', productRoutes)
 
 // use body parser to get data from POST requests
@@ -106,16 +109,16 @@ app.use(errorHandler)
 //   console.log("Connection with MongoDB was successful");
 // });
 
+
 const __dirname = path.resolve();
-app.use('/uploads', express.static(path.join(__dirname, '/uploads')))
-app.use(express.static(path.join(__dirname, '/client/public')))
+// app.use('/uploads', express.static(path.join(__dirname, '/uploads')))
 
 //For development mode
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '/client/build')))
+  // app.use(express.static(path.join(__dirname, 'client/build')))
   
   app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, "client", "build", "index.html")); //or path.join
+    res.sendFile(path.resolve(__dirname, 'client/build/index.html')); //or path.join
   });
 } else {
   app.get('/', (req, res, next) => {

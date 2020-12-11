@@ -5,14 +5,21 @@
   "description": "shop clother",
   "main": "server.js",
   "type": "module",
+  "homepage": "/build",
+  "engines": {
+    "npm": "6.x",
+    "node": "14.x"
+  },
   "scripts": {
     "start": "node backend/server",
+    "build": "cd client && npm run build",
     "server": "nodemon backend/server",
-    "client": "npm start --prefix client",
+    "client": "cd client && npm start",
+    "install-cli": "cd client && npm install",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "data:import": "node backend/seeder",
     "data:destroy": "node backend/seeder -d",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm run install-cli && npm run build",
     "for-react-only": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
   },
   "author": "Valentin Mamontov",
@@ -31,6 +38,7 @@
     "helmet": "^4.2.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.10.14",
+    "morgan": "^1.10.0",
     "nodemon": "^2.0.6",
     "sass": "^1.30.0",
     "stripe": "^8.121.0"
