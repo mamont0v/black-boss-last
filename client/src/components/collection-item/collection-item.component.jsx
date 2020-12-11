@@ -3,7 +3,7 @@ import './collection-component.styles.scss'
 import {connect} from 'react-redux'
 
 import CustomButton from '../custom-button/custom-button.component'
-import { ReactComponent as ShopingBag} from '../../assets/2849824-basket-buy-market-multimedia-shop-shopping-store_107977.svg'
+// import { ReactComponent as ShopingBag} from '../../assets/2849824-basket-buy-market-multimedia-shop-shopping-store_107977.svg'
 import {addItem} from '../../redux/dropdown-cart-bag/bag.action'
 
 
@@ -16,7 +16,7 @@ const CollectionItem = ({ item, addItem }) => {
                 <span className='name'>{name}</span>
                 <span className='price'>{price}</span>
             </div>
-            <CustomButton onClick = {()=> addItem(item) } inverted><ShopingBag className ='shopbag'/></CustomButton>
+            {/* <CustomButton onClick = {()=> addItem(item) } inverted><ShopingBag className ='shopbag'/></CustomButton> */}
         </div>
     )
 }

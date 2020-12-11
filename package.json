@@ -1,13 +1,10 @@
 {
   "name": "blackboss",
   "version": "1.0.0",
+  "private": true,
   "description": "shop clother",
   "main": "server.js",
   "type": "module",
-  "engines": {
-    "node": "15.x",
-    "npm": "7.x"
-  },
   "scripts": {
     "start": "node backend/server",
     "server": "nodemon backend/server",
@@ -30,13 +27,12 @@
     "dotenv": "^8.2.0",
     "express-async-handler": "^1.1.4",
     "firebase-admin": "^9.4.1",
-    "graphql": "^15.4.0",
+    "graphql": "^14.7.0",
     "helmet": "^4.2.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.10.14",
     "nodemon": "^2.0.6",
     "sass": "^1.30.0",
-    "sass-loader": "^10.1.0",
     "stripe": "^8.121.0"
   },
   "devDependencies": {

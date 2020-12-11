@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ReactComponent as ShopingCart } from '../../assets/reusable-shopping-bag-svgrepo-com.svg';
+// import { ReactComponent as ShopingCart } from '../../assets/reusable-shopping-bag-svgrepo-com.svg';
 import { connect } from 'react-redux';
 import { toggleBagMenu } from '../../redux/dropdown-cart-bag/bag.action.js';
 import { selectBagItemsCount } from '../../redux/dropdown-cart-bag/bag.selector.js';
@@ -10,7 +10,7 @@ import './shoping.styles.scss';
 
 const ShopingBag = ({ toggleBagMenu, itemCount }) => (
     <div className='bag-full' onClick={toggleBagMenu}>
-        <ShopingCart className='bag' />
+        {/* <ShopingCart className='bag' /> */}
         <span className='bag-count'>{itemCount}</span>
     </div>
 )
