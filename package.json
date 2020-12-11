@@ -19,7 +19,7 @@
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "data:import": "node backend/seeder",
     "data:destroy": "node backend/seeder -d",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm run install-cli && npm run build",
+    
     "for-react-only": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
   },
   "author": "Valentin Mamontov",
