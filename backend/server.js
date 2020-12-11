@@ -51,6 +51,7 @@ const app = express();
 // };
 app.use(cors()); //corsOptions
 
+app.use(express.json())
 
 //Routes
 app.use('/api/products', productRoutes)
@@ -74,10 +75,6 @@ app.use(errorHandler)
 
 
 
-app.listen(PORT, error => {
-  if (error) throw error;
-  console.log(`Server running im ${process.env.NODE_ENV} on ${process.env.PORT} port`.yellow.bold);
-})
 
 // Use API routes from the api folder
 // const apis = require("./api");
@@ -110,11 +107,13 @@ app.listen(PORT, error => {
 // });
 
 const __dirname = path.resolve();
+app.use('/uploads', express.static(path.join(__dirname, '/uploads')))
+app.use(express.static(path.join(__dirname, '/client/public')))
 
 //For development mode
 if (process.env.NODE_ENV === 'production') {
-  app.use("/images", express.static(path.join(__dirname, "images")));
-  app.use(express.static(path.join(__dirname, '/public', '/assets')))
+  app.use(express.static(path.join(__dirname, '/client/build')))
+  
   app.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, "client", "build", "index.html")); //or path.join
   });
@@ -128,7 +127,10 @@ if (process.env.NODE_ENV === 'production') {
 
 
 
-
+app.listen(PORT, error => {
+  if (error) throw error;
+  console.log(`Server running im ${process.env.NODE_ENV} on ${PORT} port`.yellow.bold);
+})
 
 
 
